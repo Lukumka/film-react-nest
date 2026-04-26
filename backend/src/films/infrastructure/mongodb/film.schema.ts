@@ -1,7 +1,7 @@
 import { HydratedDocument } from 'mongoose';
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { SessionSchema } from './session.schema';
-import { Session } from '../../domain/entities/film.entity';
+import { Session } from '../../domain/models/film.model';
 
 export type FilmDocument = HydratedDocument<Film>;
 

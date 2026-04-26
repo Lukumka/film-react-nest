@@ -12,7 +12,7 @@ export class FilmsService {
     };
   }
   async getSchedule(id: string) {
-    const film = await this.filmRepository.getById(id);
-    return { total: film.schedule.length, items: film.schedule };
+    const schedule = await this.filmRepository.getById(id);
+    return { total: schedule.length, items: schedule };
   }
 }

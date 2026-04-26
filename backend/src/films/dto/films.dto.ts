@@ -1,4 +1,4 @@
-import { Film } from '../domain/entities/film.entity';
+import { Film } from '../domain/models/film.model';
 
 export class FilmsListResponseDto {
   total: number;
