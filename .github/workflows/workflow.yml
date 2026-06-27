@@ -3,8 +3,7 @@ name: Docker Publish
 on:
   push:
     branches:
-      - main
-      - master
+      - review-2
 
 jobs:
   build-and-push:
