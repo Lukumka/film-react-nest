@@ -1,10 +1,7 @@
-import { Ticket } from '../domain/entities/order.entity';
+import { CreateTicketDto } from './create-ticket.dto';
 
 export class CreateOrderDto {
-  tickets: Ticket[];
-}
-
-export class CreateOrderResponseDto {
-  total: number;
-  items: (Ticket & { id: string })[];
+  email?: string;
+  phone?: string;
+  tickets: CreateTicketDto[];
 }

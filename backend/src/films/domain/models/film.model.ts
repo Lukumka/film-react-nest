@@ -8,15 +8,14 @@ export interface Film {
   description: string;
   image: string;
   cover: string;
-  schedule: Session[];
 }
 
 export interface Session {
   id: string;
+  filmId: string;
   daytime: Date;
   hall: number;
   rows: number;
   seats: number;
   price: number;
-  taken: string[];
 }

@@ -7,6 +7,6 @@ export class OrderEntity {
   id: string;
   @OneToMany(() => TicketEntity, (ticket) => ticket.order)
   tickets: TicketEntity[];
-  @Column({ type: 'int' })
+  @Column({ name: 'total_price', type: 'int' })
   totalPrice: number;
 }
