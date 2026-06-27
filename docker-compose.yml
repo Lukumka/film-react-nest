@@ -1,5 +1,6 @@
 services:
   frontend:
+    image: ghcr.io/lukumka/film-frontend:latest
     build: ./frontend
     container_name: frontend-film
     ports:
@@ -7,6 +8,7 @@ services:
     depends_on:
       - backend
   backend:
+    image: ghcr.io/lukumka/film-backend:latest
     build: ./backend
     container_name: backend-film
     ports:
