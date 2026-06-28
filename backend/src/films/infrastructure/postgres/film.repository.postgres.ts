@@ -24,7 +24,18 @@ export class FilmRepositoryPostgres extends FilmRepository {
     const entities = await this.filmRepository.find({
       relations: ['tags'],
     });
-    return instanceToPlain(entities) as Film[];
+
+    return entities.map((entity) => ({
+      id: entity.id,
+      rating: entity.rating,
+      director: entity.director,
+      title: entity.title,
+      about: entity.about,
+      description: entity.description,
+      image: entity.image,
+      cover: entity.cover,
+      tags: entity.tags.map((tag) => tag.title),
+    }));
   }
   async getById(id: string): Promise<any> {
     const schedule = await this.sessionRepository.find({

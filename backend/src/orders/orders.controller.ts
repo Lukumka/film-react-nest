@@ -1,12 +1,13 @@
 import { Body, Controller, Post } from '@nestjs/common';
 import { OrderService } from './orders.service';
-import { Ticket } from './domain/entities/order.entity';
+import { CreateOrderResponseDto } from './dto/order-response.dto';
+import { CreateOrderDto } from './dto/create-order.dto';
 
 @Controller('orders')
 export class OrdersController {
   constructor(private readonly orderService: OrderService) {}
   @Post()
-  createOrder(@Body() data: Ticket[]) {
-    return this.orderService.create({ tickets: data });
+  createOrder(@Body() data: CreateOrderDto): Promise<CreateOrderResponseDto> {
+    return this.orderService.createOrder(data);
   }
 }

@@ -20,6 +20,10 @@ import { OrderRepositoryPostgres } from './orders/infrastructure/postgres/order.
 import { TicketEntity } from './orders/infrastructure/postgres/entities/ticket.entity';
 import { OrderEntity } from './orders/infrastructure/postgres/entities/order.entity';
 import { AppConfigModule } from './app.config.module';
+import { TicketRepositoryPostgres } from './orders/infrastructure/postgres/ticket.repository.postgres';
+import { TicketRepository } from './orders/domain/ports/ticket.repository.port';
+import { SessionRepositoryPostgres } from './films/infrastructure/postgres/session.repository.postgres';
+import { SessionRepository } from './films/domain/ports/session.repository.port';
 
 @Module({
   imports: [
@@ -54,6 +58,8 @@ import { AppConfigModule } from './app.config.module';
   providers: [
     configProvider,
     { provide: OrderRepository, useClass: OrderRepositoryPostgres },
+    { provide: TicketRepository, useClass: TicketRepositoryPostgres },
+    { provide: SessionRepository, useClass: SessionRepositoryPostgres },
     OrderService,
     { provide: FilmRepository, useClass: FilmRepositoryPostgres },
     FilmsService,
